@@ -96,7 +96,7 @@ export default function ChatWidget() {
     setShowQuick(false);
 
     try {
-      const { data } = await axios.post(`${AI_API}/chat`, { message: userText }, { timeout: 15000 });
+      const { data } = await axios.post(`${AI_API}/chat`, { message: userText }, { timeout: 45000 });
       const botText = data.reply || 'Sorry, I could not get a response.';
       setMessages((prev) => [
         ...prev,
@@ -105,7 +105,7 @@ export default function ChatWidget() {
       if (!open) setUnread((n) => n + 1);
     } catch (err) {
       const errMsg = err.code === 'ECONNREFUSED' || err.code === 'ERR_NETWORK'
-        ? '⚠️ Cannot reach the AI service. Make sure Python FastAPI is running on port 8000.'
+        ? '⚠️ Cannot reach the backend service (https://kanban-cfma.onrender.com). Please wait a few seconds while Render spins up.'
         : '⚠️ Something went wrong. Please try again.';
       setMessages((prev) => [
         ...prev,
