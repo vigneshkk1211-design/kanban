@@ -50,9 +50,24 @@ let activePort = PREFERRED_PORT; // updated once the server binds successfully
 // ── Express App ──────────────────────────────────────────────────────────────
 const app = express();
 
+const allowedOrigins = [
+  'https://kanban-roan-mu.vercel.app',
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'http://localhost:5175',
+  'http://localhost:3000',
+];
+
 app.use(cors({
-  origin: true, // Allow all origins (localhost:5173, 5174, 5175, 3000, etc.)
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(null, true);
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
 app.use(express.json());
