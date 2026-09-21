@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-NODE_API_URL = os.getenv("NODE_API_URL", "http://localhost:5001")
+NODE_API_URL = os.getenv("NODE_API_URL", "https://kanban-cfma.onrender.com")
 
 app = FastAPI(
     title="Kanban Rule-Based Chatbot",

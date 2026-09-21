@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
-const AI_API = 'http://localhost:8000';
+const AI_API = import.meta.env.VITE_AI_API_URL || 'https://kanban-cfma.onrender.com';
 
 const QUICK_PROMPTS = [
   { label: '📋 To Do', query: 'List the TO DO tasks' },
