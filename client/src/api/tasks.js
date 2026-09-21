@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Target Node.js Express backend directly on port 5001
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://kanban-cfma.onrender.com/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://kanban-1-ftyd.onrender.com/api';
 
 const API = axios.create({
   baseURL: API_BASE_URL,

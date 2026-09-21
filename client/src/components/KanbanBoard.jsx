@@ -70,7 +70,7 @@ export default function KanbanBoard({ onBoardRefresh }) {
       const data = await fetchTasks();
       setTasks(data);
     } catch (err) {
-      setError('Could not connect to backend server (https://kanban-cfma.onrender.com). If the server is spinning up on Render free tier, please wait a few seconds and refresh.');
+      setError('Could not connect to backend server (https://kanban-1-ftyd.onrender.com). If the server is spinning up on Render free tier, please wait a few seconds and refresh.');
     } finally {
       setLoading(false);
     }
